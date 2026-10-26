@@ -1,0 +1,7 @@
+---
+- name: Create the application network
+  docker_network:
+    name: "{{ docker_network_name }}"
+    state: present
+  vars:
+    ansible_python_interpreter: "{{ docker_python_interpreter }}"

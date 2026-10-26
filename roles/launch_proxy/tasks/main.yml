@@ -1,0 +1,14 @@
+---
+- name: Run HTTPD
+  docker_container:
+    name: httpd
+    image: "{{ dockerhub_username }}/tp-devops-httpd:latest"
+    pull: true
+    state: started
+    restart_policy: always
+    ports:
+      - "80:80"
+    networks:
+      - name: "{{ docker_network_name }}"
+  vars:
+    ansible_python_interpreter: "{{ docker_python_interpreter }}"

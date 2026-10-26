@@ -1,0 +1,15 @@
+---
+- name: Run application
+  docker_container:
+    name: simple-api
+    image: "{{ dockerhub_username }}/tp-devops-simple-api:latest"
+    pull: true
+    state: started
+    restart_policy: always
+    env:
+      DATABASE_HOST: database
+      DATABASE_PASSWORD: "{{ db_password }}"
+    networks:
+      - name: "{{ docker_network_name }}"
+  vars:
+    ansible_python_interpreter: "{{ docker_python_interpreter }}"

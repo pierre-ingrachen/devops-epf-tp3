@@ -1,0 +1,17 @@
+- hosts: all
+  gather_facts: true
+  become: true
+
+  roles:
+    - role: install_docker
+      tags: docker
+    - role: create_network
+      tags: network
+    - role: launch_database
+      tags: database
+    - role: launch_app
+      tags: app
+    - role: launch_front
+      tags: front
+    - role: launch_proxy
+      tags: proxy

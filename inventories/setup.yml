@@ -1,0 +1,16 @@
+all:
+ vars:
+   ansible_user: admin
+   ansible_ssh_private_key_file: ~/.ssh/id_rsa
+   # Interpréteur contenant le SDK Docker, utilisé par les modules docker_*
+   docker_python_interpreter: /opt/docker_venv/bin/python
+   # Compte DockerHub qui héberge les images poussées par la CI du TP2
+   dockerhub_username: inbpierre
+   docker_network_name: my-network
+   db_name: db
+   db_user: usr
+   db_password: pwd
+   ansible_python_interpreter: /usr/bin/python3
+ children:
+   prod:
+     hosts: pierre.ingrachen--boutantin.takima.school
